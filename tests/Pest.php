@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Tests\TestCase;
 
 /*
@@ -15,8 +15,17 @@ use Tests\TestCase;
 */
 
 pest()->extend(TestCase::class)
-    ->use(RefreshDatabase::class)
-    ->in('Feature');
+    ->use(LazilyRefreshDatabase::class)
+    ->beforeEach(function () {
+        Str::createRandomStringsNormally();
+        Str::createUuidsNormally();
+        // Http::preventStrayRequests();
+        Process::preventStrayProcesses();
+        // Sleep::fake();
+
+        // $this->freezeTime();
+    })
+    ->in('Feature', 'Unit');
 
 /*
 |--------------------------------------------------------------------------

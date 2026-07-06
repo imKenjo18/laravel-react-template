@@ -5,11 +5,11 @@
 /public/fonts-manifest.dev.json
 /public/hot
 /public/storage
-/storage/*.key
-/storage/pail
 /resources/js/actions
 /resources/js/routes
 /resources/js/wayfinder
+/storage/*.key
+/storage/pail
 /vendor
 .DS_Store
 .env
@@ -27,3 +27,17 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# PHPStan and Rector
+/tmp/
+
+# AI Agents
+/.agents
+/.claude
+/.gemini
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+
+.mcp.json
+boost.json
