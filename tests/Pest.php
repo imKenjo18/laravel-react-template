@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
+use Illuminate\Support\Facades\Process;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 /*
@@ -16,7 +20,7 @@ use Tests\TestCase;
 
 pest()->extend(TestCase::class)
     ->use(LazilyRefreshDatabase::class)
-    ->beforeEach(function () {
+    ->beforeEach(function (): void {
         Str::createRandomStringsNormally();
         Str::createUuidsNormally();
         // Http::preventStrayRequests();
@@ -38,9 +42,7 @@ pest()->extend(TestCase::class)
 |
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
+expect()->extend('toBeOne', fn () => $this->toBe(1));
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +55,7 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+function something(): void
 {
     // ..
 }
