@@ -51,8 +51,8 @@ return RectorConfig::configure()
     ->withSkip([
         AddOverrideAttributeToOverriddenMethodsRector::class,
         AddOverrideAttributeToOverriddenPropertiesRector::class,
-        MakeInheritedMethodVisibilitySameAsParentRector::class,
         EncapsedStringsToSprintfRector::class,
+        MakeInheritedMethodVisibilitySameAsParentRector::class,
     ])
     ->withPreparedSets(
         deadCode: true,
