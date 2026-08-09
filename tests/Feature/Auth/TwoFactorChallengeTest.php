@@ -50,8 +50,19 @@ test('two factor challenge succeeds with valid code', function (): void {
         'password' => 'password',
     ]);
 
-    $secret = decrypt($user->two_factor_secret);
-    $validCode = app(Google2FA::class)->getCurrentOtp($secret);
+    $twoFactorSecret = $user->two_factor_secret;
+
+    if (! is_string($twoFactorSecret)) {
+        $this->fail('Two factor secret is missing.');
+    }
+
+    $secret = decrypt($twoFactorSecret);
+
+    if (! is_string($secret)) {
+        $this->fail('Decrypted secret is not a string.');
+    }
+
+    $validCode = resolve(Google2FA::class)->getCurrentOtp($secret);
 
     $response = $this->post(route('two-factor.login'), [
         'code' => $validCode,
