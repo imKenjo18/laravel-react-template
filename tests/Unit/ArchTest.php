@@ -5,10 +5,9 @@ declare(strict_types=1);
 arch()->preset()->php();
 // arch()->preset()->strict();
 arch()->preset()->laravel();
-arch()->preset()->security()->ignoring([
-    'assert',
-]);
+arch()->preset()->security();
 
-arch('strict types')
+arch('globals')
     ->expect('App')
-    ->toUseStrictTypes();
+    ->toUseStrictTypes()
+    ->not->toUse(['dd', 'dump', 'die']);
