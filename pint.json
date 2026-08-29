@@ -1,8 +1,6 @@
 {
     "preset": "laravel",
-    "notPath": [
-        "tmp"
-    ],
+    "notPath": ["tmp"],
     "rules": {
         "array_push": true,
         "backtick_to_shell_exec": true,
