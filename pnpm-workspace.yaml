@@ -1,8 +1,9 @@
+ignoreScripts: true
+
+minimumReleaseAge: 4320
+
 packages:
     - '.'
 
 publicHoistPattern:
     - '@inertiajs/core'
-
-ignoreScripts: true
-minimumReleaseAge: 4320
