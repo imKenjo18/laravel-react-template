@@ -27,17 +27,21 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+/.agents
+/.amp
+/.claude
+/.cursor
+/.factory
+/.grok
+/.junie
+/.kiro
+/.pi
+/.mcp.json
+/AGENTS.md
+/CLAUDE.md
+/boost.json
+/opencode.json
+/opencode.jsonc
 
 # PHPStan and Rector
-/tmp/
-
-# AI Agents
-/.agents
-/.claude
-/.gemini
-AGENTS.md
-CLAUDE.md
-GEMINI.md
-
-.mcp.json
-boost.json
+/tmp
