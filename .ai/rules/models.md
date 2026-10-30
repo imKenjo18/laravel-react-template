@@ -28,3 +28,7 @@ Use `HasUuids` on all domain models and pivot models defining a surrogate key. D
 ## Docblock and Casts Ordering Following Migrations
 
 List `@property` annotations in model docblocks in the exact column order defined in the table migration, followed by `@property-read` relationships. Explicitly define all migration columns in `casts()` in the identical migration column order, including primitive strings, and type dates in docblocks as `CarbonInterface` (or `CarbonInterface|null` if nullable).
+
+## Dedicated Domain Timestamps
+
+Do not evaluate `created_at` or `updated_at` for domain milestones or business logic. Pair dedicated timestamp columns with pure state inspection methods (e.g. `isPublished(): bool` inspecting `$this->published_at !== null && $this->published_at->isPast()`). Keep standard Eloquent timestamps enabled across all models, using matching `created_at` and `updated_at` values to verify that append-only or audit records remain unmutated.
